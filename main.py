@@ -22,16 +22,19 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         query = event.get_argument()
         logger.info("preferences %s" % json.dumps(extension.preferences))
-        result = subprocess.run(
+        expression = subprocess.run(
             ["qalc", query], stdout=subprocess.PIPE, text=True
+        ).stdout
+        result = subprocess.run(
+            ["qalc", '-t', query], stdout=subprocess.PIPE, text=True
         ).stdout
         items = [
             ExtensionResultItem(
                 icon="images/icon.svg",
-                name=result,
+                name=expression,
                 description="Enter to copy the result\nAlt-enter to copy the expression",
-                on_enter=CopyToClipboardAction(RunScriptAction("qalc -t %s" % query)),
-                on_alt_enter=CopyToClipboardAction(result),
+                on_enter=CopyToClipboardAction(result),
+                on_alt_enter=CopyToClipboardAction(expression),
             )
         ]
 
