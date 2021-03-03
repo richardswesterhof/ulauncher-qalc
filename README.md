@@ -1,4 +1,4 @@
-# Gnome Calculator
+# Qalculate
 
 Query results from [qalc](https://github.com/Qalculate/libqalculate)
 
