@@ -29,9 +29,9 @@ class KeywordQueryEventListener(EventListener):
             ExtensionResultItem(
                 icon="images/icon.svg",
                 name=result,
-                description="Enter to copy to the clipboard\nAlt-enter to open in calculator",
-                on_enter=CopyToClipboardAction(result),
-                on_alt_enter=RunScriptAction("qalculate-gtk -n '%s'" % query),
+                description="Enter to copy the result\nAlt-enter to copy the expression",
+                on_enter=CopyToClipboardAction(RunScriptAction("qalc -t %s" % query)),
+                on_alt_enter=CopyToClipboardAction(result),
             )
         ]
 
