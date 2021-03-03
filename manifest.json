@@ -1,18 +1,18 @@
 {
   "required_api_version": "^2.0.0",
-  "name": "Gnome Calculator",
-  "description": "Query results from Gnome calculator",
-  "developer_name": "Doeke Buursma",
+  "name": "Qalculate",
+  "description": "Query results from qalc (forked from ulauncher-gnome-calculator)",
+  "developer_name": "hippo_o_matic",
   "icon": "images/icon.svg",
   "options": {
     "query_debounce": 0.05
   },
   "preferences": [
     {
-      "id": "calculator_kw",
+      "id": "calculator_qalc",
       "type": "keyword",
-      "name": "Gnome Calculator",
-      "default_value": "calc"
+      "name": "Qalculate",
+      "default_value": "qalc"
     }
   ]
 }
