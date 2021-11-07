@@ -31,8 +31,8 @@ class KeywordQueryEventListener(EventListener):
         items = [
             ExtensionResultItem(
                 icon="images/icon.svg",
-                name=expression,
-                description="Enter to copy the result\nAlt-enter to copy the expression",
+                name=result.strip(),
+                description=expression.strip(),
                 on_enter=CopyToClipboardAction(result),
                 on_alt_enter=CopyToClipboardAction(expression),
             )
